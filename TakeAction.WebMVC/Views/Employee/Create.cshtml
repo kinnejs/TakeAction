@@ -1,0 +1,91 @@
+﻿@model TakeAction.Models.EmployeeCreate
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2 style="color:white;font-size: 70px"><center>New Employee</center></h2>
+
+
+
+@using (Html.BeginForm())
+{<body>
+        @Html.AntiForgeryToken()
+     <div class=" createemployee-board" autocomplete="off">
+         <div class=" createemployee-container col-md-12" style="text-align:center; margin:10px">
+             <div class="createemployee-card" ; color: black>
+                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                 <div class="form-group">
+                     <div style="40px; padding-top: 30px; width: 20%; margin:0px auto; display:block">
+                         First Name
+                         @Html.EditorFor(model => model.EmployeeFirstName, new { htmlAttributes = new { @class = "form-control" } })
+                         @Html.ValidationMessageFor(model => model.EmployeeFirstName, "", new { @class = "text-danger" })
+                     </div>
+                 </div>
+
+                 <div class="form-group">
+                     <div style="40px; padding-top: 30px; width: 20%; margin:0px auto; display:block">
+                         Last Name
+                         @Html.EditorFor(model => model.EmployeeLastName, new { htmlAttributes = new { @class = "form-control" } })
+                         @Html.ValidationMessageFor(model => model.EmployeeLastName, "", new { @class = "text-danger" })
+                     </div>
+                 </div>
+                 <div class="form-group">
+                     <div style="40px; padding-top: 30px; width: 20%; margin:0px auto; display:block">
+                         Manager
+                         @Html.DropDownListFor(model => model.ManagerId, ViewData["Managers"] as IEnumerable<SelectListItem>)
+                         @Html.ValidationMessageFor(model => model.ManagerFullName, "", new { @class = "text-danger" })
+                     </div>
+                 </div>
+                 <div class="form-group">
+                     <div style="40px; padding-top: 30px; width: 20%; margin:0px auto; display:block">
+                         Dept
+                         @Html.EnumDropDownListFor(model => model.Dept, new { htmlAttributes = new { @class = "form-control" } })
+                         @Html.ValidationMessageFor(model => model.Dept, "", new { @class = "text-danger" })
+                     </div>
+                 </div>
+                 <div class="form-group" autocomplete="off">
+                 <div class="form-group" autocomplete="off">
+                     <div style="40px; padding-top: 30px; width: 20%; margin:0px auto; display:block">
+                         Hired Date
+                         @Html.EditorFor(model => model.HiredDate, new { htmlAttributes = new { @class = "datepicker", autocomplete= "off" } })
+
+                         @Html.ValidationMessageFor(model => model.HiredDate, "", new { @class = "text-danger" })
+                     </div>
+                 </div>
+                 <div class="form-group">
+                     <div style="40px; padding-top: 30px; width: 20%; margin:0px auto; display:block">
+                         <input type="submit" value="Submit" class="btn btn-default" />
+                     </div>
+                 </div>
+             </div>
+         </div>
+         <div>
+             @Html.ActionLink("Back to List", "Index")
+         </div>
+         
+         @section Scripts {
+             @Scripts.Render("~/bundles/jqueryval")
+             <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+
+             <script style="color: black">
+                 $(function () {
+                     $(".datepicker").datepicker({ dateFormat: "mm/dd/yy" });
+                 });
+             </script>
+         }
+     </div>
+    </body>
+}
+<link href="C:\Users\kinne\OneDrive\Desktop\ElevenFiftyProjects\TakeAction\TakeAction.Services\Content\themes\base\jquery-ui.min.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+

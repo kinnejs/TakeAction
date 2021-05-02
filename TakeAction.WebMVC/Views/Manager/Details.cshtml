@@ -1,0 +1,56 @@
+﻿@model TakeAction.Models.Manager.ManagerDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 style="color:white;font-size: 70px"><center>Manager Details</center></h2>
+
+
+<hr />
+<div class="createemployee-card" ; color: black>
+    <div class=" createemployee-container col-md-12" style="text-align:center;">
+        <div style="font-size: 50px; padding-top: 10px; width: 40%; margin:0px auto; display:block">
+            <dt>
+                <b>@Html.DisplayNameFor(model => model.ManagerId)</b>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ManagerId)
+            </dd>
+        </div>
+        <div style="font-size: 50px; padding-top: 10px; width: 40%; margin:0px auto; display:block">
+            <dt>
+                <b>@Html.DisplayNameFor(model => model.ManagerFullName)</b>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ManagerFullName)
+            </dd>
+        </div>
+        <div style="font-size: 50px; padding-top: 10px; width: 40%; margin:0px auto; display:block">
+            <dt>
+                <b>@Html.DisplayNameFor(model => model.Subordinates)</b>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Subordinates)
+            </dd>
+        </div>
+        <div style="font-size: 50px; padding-top: 10px; width: 40%; margin:0px auto; display:block">
+            <dt>
+                <b>@Html.DisplayNameFor(model => model.HiredDate)</b>
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HiredDate)
+            </dd>
+        </div>
+
+    </div>
+
+</div>
+<p>
+    <center>@Html.ActionLink("Edit", "Edit", new { id = Model.ManagerId })</center>
+    <center>@Html.ActionLink("Back to List", "Index")</center>
+</p>

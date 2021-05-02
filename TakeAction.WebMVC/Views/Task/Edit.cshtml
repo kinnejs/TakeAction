@@ -1,0 +1,86 @@
+﻿@model TakeAction.Models.Task.TaskEdit
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2 style="color:white;font-size: 70px"><center>Edit Task</center></h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    {<body>
+         <div class=" createemployee-board">
+             @Html.HiddenFor(model => model.TaskId)
+             <div class=" createemployee-container col-md-12" style="text-align:center; margin:10px">
+                 <div class="createemployee-card" ; color: black; padding: 10px>
+                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                     <div class="form-group">
+                         Task Name
+                         <div style="font-size: 40px; padding-top: 30px; width: 20%; margin:0px auto; display:block">
+                             @Html.EditorFor(model => model.TaskName, new { htmlAttributes = new { @class = "form-control" } })
+                             @Html.ValidationMessageFor(model => model.TaskName, "", new { @class = "text-danger" })
+                         </div>
+                     </div>
+                     <div class="form-group">
+                         Summary
+                         <div style="font-size: 40px; padding-top: 30px; width: 20%; margin:0px auto; display:block">
+                             @Html.EditorFor(model => model.TaskSummary, new { htmlAttributes = new { @class = "form-control" } })
+                             @Html.ValidationMessageFor(model => model.TaskSummary, "", new { @class = "text-danger" })
+                         </div>
+                     </div>
+                     <div class="form-group">
+                         Due Date
+                         <div style="font-size: 20px; padding-top: 30px; width: 20%; margin:0px auto; display:block">
+                             @Html.EditorFor(model => model.DueDate, new { htmlAttributes = new { @class = "datepicker", autocomplete = "off" } })
+                             @Html.ValidationMessageFor(model => model.DueDate, "", new { @class = "text-danger" })
+                         </div>
+                     </div>
+                     <div style="font-size: 40px; padding-top: 30px; width: 20%; margin:0px auto; display:block">
+                         Flagged
+                         <div>
+                             <div class="checkbox">
+                                 @Html.EditorFor(model => model.Flagged)
+                                 @Html.ValidationMessageFor(model => model.Flagged, "", new { @class = "text-danger" })
+                             </div>
+                         </div>
+                     </div>
+
+                     <div style="font-size: 40px; padding-top: 30px; width: 20%; margin:0px auto; display:block">
+                         Completed
+                         <div>
+                             <div class="checkbox">
+                                 @Html.EditorFor(model => model.Completed)
+                                 @Html.ValidationMessageFor(model => model.Completed, "", new { @class = "text-danger" })
+                             </div>
+                         </div>
+                     </div>
+                     <div class="form-group">
+                         <div style="font-size: 40px; padding-top: 30px; width: 20%; margin:0px auto; display:block">
+                             <input type="submit" value="Save" class="btn btn-default" />
+                         </div>
+                     </div>
+
+                 </div>
+             </div>
+             <div>
+                 @Html.ActionLink("Back to List", "Index")
+             </div>
+
+             @section Scripts {
+                 @Scripts.Render("~/bundles/jqueryval")
+                 <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+
+                 <script style="color: black">
+                 $(function () {
+                     $(".datepicker").datepicker({ dateFormat: "mm/dd/yy" });
+                 });
+                 </script>
+             }
+         </div>
+        </body>
+    }
+}
+<link href="C:\Users\kinne\OneDrive\Desktop\ElevenFiftyProjects\TakeAction\TakeAction.Services\Content\themes\base\jquery-ui.min.css" rel="stylesheet" />

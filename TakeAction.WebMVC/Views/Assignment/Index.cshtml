@@ -1,0 +1,57 @@
+﻿@model IEnumerable<TakeAction.Models.Assignment.AssignmentListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="color:white;font-size: 70px"><center>Assignments</center></h2>
+
+<p>
+    <center>@Html.ActionLink("Create New", "Create")</center>
+</p>
+
+@if (TempData.ContainsKey("SaveResult"))
+{    <div class="alert alert-success fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
+
+<body>
+    <div class=" employee-board">
+        @foreach (var item in Model)
+        {
+            <div class=" employee-container col-md-4" style="text-align:center">
+                <div class="employee-card" ; color: black>
+                    <div class="employee-head">
+                        <b>@Html.DisplayFor(model => item.EmployeeFullName)</b>
+                    </div>
+                    <div class="employee-body">
+                        <div class="employee-category">
+                            @Html.DisplayFor(model => item.TaskName)
+                        </div>
+                        <div>
+                            Assigner:
+                            @Html.DisplayFor(model => item.AssignerFullName)
+                        </div>
+                        <div>
+                            Due Date:
+                            @Html.DisplayFor(model => item.DueDate)
+                        </div>
+                        <div>
+                            @Html.DisplayNameFor(model => model.AssignedDate):
+                            @Html.DisplayFor(modelItem => item.AssignedDate)
+                        </div>
+                    </div>
+                    <div class="employee-links">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.AssignmentId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.AssignmentId })|
+                        @Html.ActionLink("Delete", "Delete", new { id = item.AssignmentId })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</body>

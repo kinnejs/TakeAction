@@ -1,0 +1,65 @@
+﻿@model TakeAction.Models.EmployeeDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 style="color:white;font-size: 70px"><center>Employee Details</center></h2>
+
+
+<hr />
+<div class="createemployee-card" ; color: black>
+    <div class=" createemployee-container col-md-12" style="text-align:center;">
+        <div style="font-size: 35px; padding-top: 10px; width: 20%; margin:0px auto; display:block">
+            <dt>
+                @Html.DisplayNameFor(model => model.EmployeeId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EmployeeId)
+            </dd>
+        </div>
+        <div style="font-size: 35px; padding-top: 10px; width: 20%; margin:0px auto; display:block">
+            <dt>
+                @Html.DisplayNameFor(model => model.EmployeeFullName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EmployeeFullName)
+            </dd>
+        </div>
+        <div style="font-size: 35px; padding-top: 10px; width: 20%; margin:0px auto; display:block">
+            <dt>
+                @Html.DisplayNameFor(model => model.ManagerFullName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ManagerFullName)
+            </dd>
+        </div>
+
+        <div style="font-size: 35px; padding-top: 10px; width: 20%; margin:0px auto; display:block">
+            <dt>
+                @Html.DisplayNameFor(model => model.Dept)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Dept)
+            </dd>
+        </div>
+        <div style="font-size: 35px; padding-top: 10px; width: 20%; margin:0px auto; display:block">
+            <dt>
+                @Html.DisplayNameFor(model => model.HiredDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HiredDate)
+            </dd>
+        </div>
+
+    </div>
+</div>
+<p>
+    <center>@Html.ActionLink("Edit", "Edit", new { id = Model.EmployeeId })</center>
+    <center>@Html.ActionLink("Back to List", "Index")</center>
+</p>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<TakeAction.Models.Task.TaskListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="color:white;font-size: 70px"><center>Tasks</center></h2>
+
+<p>
+    <center>@Html.ActionLink("Create New", "Create", new { @class = "link-class" })</center>
+</p>
+
+@if (TempData.ContainsKey("SaveResult"))
+{<div class="alert alert-success fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
+
+
+<body>
+    <div class=" employee-board">
+        @foreach (var item in Model)
+        {
+            <div class=" employee-container col-md-4" style="text-align:center">
+                <div class="employee-card" ; color: black>
+                    <div class="employee-head">
+                        <b>@Html.DisplayFor(model => item.TaskName)</b>
+                    </div>
+                    <div class="employee-body">
+                        <div class="employee-category">
+                            @Html.DisplayFor(model => item.TaskSummary)
+                        </div>
+                        <div>
+                            Due Date:
+                            @Html.DisplayFor(model => item.DueDate)
+                        </div>
+
+                        <div>
+                            @Html.DisplayNameFor(model => model.Flagged)
+                            @Html.DisplayFor(modelItem => item.Flagged)
+                        </div>
+                        <div>
+                            @Html.DisplayNameFor(model => model.Completed)
+                            @Html.DisplayFor(modelItem => item.Completed)
+                        </div>
+                    </div>
+                    <div class="employee-links">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.TaskId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.TaskId })|
+                        @Html.ActionLink("Delete", "Delete", new { id = item.TaskId })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<TakeAction.Models.Manager.ManagerListItem>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="color:white; font-size: 70px"><center>Managers</center></h2>
+
+<p>
+    <center>@Html.ActionLink("Create New", "Create")</center>
+</p>
+
+
+@if (TempData.ContainsKey("SaveResult"))
+{<div class="alert alert-success fade in" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SaveResult"]
+    </div>
+}
+
+<body>
+    <div class=" employee-board">
+        @foreach (var item in Model)
+        {
+            <div class=" employee-container col-md-3" style="text-align:center">
+                <div class="employee-card" ; color: black>
+                    <div class="employee-head">
+                        <b>@Html.DisplayFor(model => item.ManagerFullName)</b>
+                    </div>
+                    <div class="employee-body">
+                        <div class="employee-category">
+                            @Html.DisplayNameFor(model => model.HiredDate)
+                            @Html.DisplayFor(model => item.HiredDate)
+                        </div>
+                        <div>
+                            @Html.DisplayNameFor(model => model.Subordinates):
+                            @Html.DisplayFor(model => item.Subordinates)
+                        </div>
+                        <div>
+                            @Html.DisplayFor(modelItem => item.DeptM)
+                        </div>
+                    </div>
+                    <div class="employee-links">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ManagerId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ManagerId })|
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ManagerId })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+

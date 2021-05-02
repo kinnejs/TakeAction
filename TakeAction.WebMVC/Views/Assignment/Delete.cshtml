@@ -1,0 +1,82 @@
+﻿@model TakeAction.Models.Assignment.AssignmentDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 style="color:white;font-size: 70px"><center>Delete Assignment?</center></h2>
+
+<h3 style="color:white; font-size: 40px"><center>Are you sure you want to delete this Assignment?</center></h3>
+    <hr />
+    <div class="createemployee-card" ; color: black>
+        <div class=" createemployee-container col-md-12" style="text-align:center;">
+            <div style="font-size: 25px; padding-top: 10px; width: 20%; margin:0px auto; display:block">
+                <dt>
+                    @Html.DisplayNameFor(model => model.AssignmentId)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AssignmentId)
+                </dd>
+            </div>
+            <div style="font-size: 25px; padding-top: 10px; width: 20%; margin:0px auto; display:block">
+                <dt>
+                    @Html.DisplayNameFor(model => model.EmployeeFullName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.EmployeeFullName)
+                </dd>
+            </div>
+            <div style="font-size: 25px; padding-top: 10px; width: 20%; margin:0px auto; display:block">
+                <dt>
+                    @Html.DisplayNameFor(model => model.TaskName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TaskName)
+                </dd>
+            </div>
+            <div style="font-size: 25px; padding-top: 10px; width: 20%; margin:0px auto; display:block">
+                <dt>
+                    @Html.DisplayNameFor(model => model.TaskSummary)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TaskSummary
+               )
+                </dd>
+            </div>
+            <div style="font-size: 25px; padding-top: 10px; width: 20%; margin:0px auto; display:block">
+                <dt>
+                    @Html.DisplayNameFor(model => model.AssignerFullName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AssignerFullName)
+                </dd>
+            </div>
+            <div style="font-size: 25px; padding-top: 10px; width: 20%; margin:0px auto; display:block">
+                <dt>
+                    @Html.DisplayNameFor(model => model.AssignedDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AssignedDate)
+                </dd>
+            </div>
+
+                
+            </div>
+        </div>
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-actions no-color" style="margin: 0px auto; display: block">
+                        <input type="submit" value="Delete" class="btn btn-default" style="margin: 0px auto; display: block" />
+
+                    </div>
+                }
+    <center>@Html.ActionLink("Back to List", "Index")</center>

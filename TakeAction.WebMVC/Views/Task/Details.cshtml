@@ -1,0 +1,73 @@
+﻿@model TakeAction.Models.Task.TaskDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 style="color:white;font-size: 70px"><center>Task Details</center></h2>
+
+<hr />
+<div class="createemployee-card" ; color: black>
+    <div class=" createemployee-container col-md-12" style="text-align:center;">
+        <div style="font-size: 30px; padding-top: 10px; width: 20%; margin:0px auto; display:block">
+            <dt>
+                @Html.DisplayNameFor(model => model.TaskId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TaskId)
+            </dd>
+        </div>
+        <div style="font-size: 30px; padding-top: 10px; width: 20%; margin:0px auto; display:block">
+            <dt>
+                @Html.DisplayNameFor(model => model.TaskName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TaskName)
+            </dd>
+        </div>
+        <div style="font-size: 30px; padding-top: 10px; width: 20%; margin:0px auto; display:block">
+            <dt>
+                @Html.DisplayNameFor(model => model.TaskSummary)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TaskSummary)
+            </dd>
+        </div>
+        <div style="font-size: 30px; padding-top: 10px; width: 20%; margin:0px auto; display:block">
+            <dt>
+                @Html.DisplayNameFor(model => model.DueDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DueDate)
+            </dd>
+        </div>
+        <div style="font-size: 30px; padding-top: 10px; width: 20%; margin:0px auto; display:block">
+            <dt>
+                @Html.DisplayNameFor(model => model.Flagged)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Flagged)
+            </dd>
+        </div>
+        <div style="font-size: 30px; padding-top: 10px; width: 20%; margin:0px auto; display:block">
+            <dt>
+                @Html.DisplayNameFor(model => model.Completed)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Completed)
+            </dd>
+        </div>
+
+    </div>
+
+</div>
+<p>
+    <center>@Html.ActionLink("Edit", "Edit", new { id = Model.TaskId })</center>
+    <center>@Html.ActionLink("Back to List", "Index")</center>
+</p>
