@@ -313,7 +313,6 @@
     <Content Include="Views\Task\UnflaggedTasks.cshtml" />
     <Content Include="Views\Task\CompletedTasks.cshtml" />
     <Content Include="Views\Task\OutstandingTasks.cshtml" />
-    <Content Include="Views\Employee\EmployeesByManagerId.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

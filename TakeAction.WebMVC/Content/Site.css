@@ -1,12 +1,12 @@
 ﻿.employee-card {
-    border: 1px solid black;
+    
     min-height: 100px;
     margin-bottom: 2em;
     border-radius: 10px;
     background-image: url('Assets/Marble.jpg')
 }
 .createemployee-card {
-    border: 1px solid black;
+    
     min-height: 650px;
     margin-bottom: 2em;
     border-radius: 10px;
@@ -42,6 +42,8 @@ body {
     font-size: 24px;
 
 }
+
+
 
 
 /* Set padding to keep content from hitting the edges */
