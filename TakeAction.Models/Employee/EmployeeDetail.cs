@@ -38,7 +38,7 @@ namespace TakeAction.Models
         [Display(Name = "Last Name")]
         public string ManagerLastName { get; set; }
 
-        [Display(Name = "Employee Name")]
+        [Display(Name = "Manager Name")]
         public string ManagerFullName
         {
             get

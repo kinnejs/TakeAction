@@ -49,5 +49,11 @@ namespace TakeAction.Models.Assignment
 
         [Display(Name ="Assigned Date")]
         public DateTimeOffset? AssignedDate { get; set; }
+
+        [Display(Name = "Flagged")]
+        public bool Flagged { get; set; }
+
+        [Display(Name = "Completed")]
+        public bool Completed { get; set; }
     }
 }

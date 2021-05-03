@@ -26,6 +26,8 @@ namespace TakeAction.Services
                 var taskName = ctx.Tasks.Find(model.TaskId);
                 var taskSummary = ctx.Tasks.Find(model.TaskId);
                 var taskDueDate = ctx.Tasks.Find(model.TaskId);
+                var taskFlagged = ctx.Tasks.Find(model.TaskId);
+                var taskCompleted = ctx.Tasks.Find(model.TaskId);
                 var entity =
 
                     new Assignment()
@@ -42,6 +44,8 @@ namespace TakeAction.Services
                         AssignerLastName = model.AssignerLastName,
                         DeptA = model.DeptA,
                         AssignedDate = DateTimeOffset.Now,
+                        Flagged = taskFlagged.Flagged,
+                        Completed = taskCompleted.Completed,
                     };
                 ctx.Assignments.Add(entity);
                 return ctx.SaveChanges() == 1;
@@ -69,6 +73,124 @@ namespace TakeAction.Services
                                 AssignerLastName = e.AssignerLastName,
                                 DeptA = e.DeptA,
                                 AssignedDate = e.AssignedDate,
+                                Flagged = e.Flagged,
+                                Completed = e.Completed,
+                            }
+                        );
+                return query.ToArray();
+            }
+        }
+
+        public IEnumerable<AssignmentListItem> GetFlaggedAssignments()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Assignments
+                        .Where(e => e.Flagged == true && e.AssignmentOwnerId == _userId)
+                        .Select(
+                        e =>
+                            new AssignmentListItem
+                            {
+                                AssignmentId = e.AssignmentId,
+                                EmployeeFullName = e.EmployeeFullName,
+                                TaskName = e.TaskName,
+                                TaskSummary = e.TaskSummary,
+                                DueDate = e.DueDate,
+                                AssignerFirstName = e.AssignerFirstName,
+                                AssignerLastName = e.AssignerLastName,
+                                DeptA = e.DeptA,
+                                AssignedDate = e.AssignedDate,
+                                Flagged = e.Flagged,
+                                Completed = e.Completed,
+                            }
+                        );
+                return query.ToArray();
+            }
+        }
+
+        public IEnumerable<AssignmentListItem> GetUnflaggedAssignments()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Assignments
+                        .Where(e => e.Flagged == false && e.AssignmentOwnerId == _userId)
+                        .Select(
+                        e =>
+                            new AssignmentListItem
+                            {
+                                AssignmentId = e.AssignmentId,
+                                EmployeeFullName = e.EmployeeFullName,
+                                TaskName = e.TaskName,
+                                TaskSummary = e.TaskSummary,
+                                DueDate = e.DueDate,
+                                AssignerFirstName = e.AssignerFirstName,
+                                AssignerLastName = e.AssignerLastName,
+                                DeptA = e.DeptA,
+                                AssignedDate = e.AssignedDate,
+                                Flagged = e.Flagged,
+                                Completed = e.Completed,
+                            }
+                        );
+                return query.ToArray();
+            }
+        }
+
+        public IEnumerable<AssignmentListItem> GetCompletedAssignments()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Assignments
+                        .Where(e => e.Completed == true && e.AssignmentOwnerId == _userId)
+                        .Select(
+                        e =>
+                            new AssignmentListItem
+                            {
+                                AssignmentId = e.AssignmentId,
+                                EmployeeFullName = e.EmployeeFullName,
+                                TaskName = e.TaskName,
+                                TaskSummary = e.TaskSummary,
+                                DueDate = e.DueDate,
+                                AssignerFirstName = e.AssignerFirstName,
+                                AssignerLastName = e.AssignerLastName,
+                                DeptA = e.DeptA,
+                                AssignedDate = e.AssignedDate,
+                                Flagged = e.Flagged,
+                                Completed = e.Completed,
+                            }
+                        );
+                return query.ToArray();
+            }
+        }
+
+        public IEnumerable<AssignmentListItem> GetOutstandingAssignments()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Assignments
+                        .Where(e => e.Completed == false && e.AssignmentOwnerId == _userId)
+                        .Select(
+                        e =>
+                            new AssignmentListItem
+                            {
+                                AssignmentId = e.AssignmentId,
+                                EmployeeFullName = e.EmployeeFullName,
+                                TaskName = e.TaskName,
+                                TaskSummary = e.TaskSummary,
+                                DueDate = e.DueDate,
+                                AssignerFirstName = e.AssignerFirstName,
+                                AssignerLastName = e.AssignerLastName,
+                                DeptA = e.DeptA,
+                                AssignedDate = e.AssignedDate,
+                                Flagged = e.Flagged,
+                                Completed = e.Completed,
                             }
                         );
                 return query.ToArray();
@@ -98,6 +220,8 @@ namespace TakeAction.Services
                         AssignerLastName = entity.AssignerLastName,
                         DeptA = entity.DeptA,
                         AssignedDate = entity.AssignedDate,
+                        Flagged = entity.Flagged,
+                        Completed = entity.Completed,
                     };
             }
         }
@@ -124,6 +248,8 @@ namespace TakeAction.Services
                             AssignerLastName = e.AssignerLastName,
                             DeptA = e.DeptA,
                             AssignedDate = e.AssignedDate,
+                            Flagged = e.Flagged,
+                            Completed = e.Completed,
                         });
                 return query.ToArray();
             }
@@ -150,6 +276,8 @@ namespace TakeAction.Services
                             AssignerLastName = e.AssignerLastName,
                             DeptA = e.DeptA,
                             AssignedDate = e.AssignedDate,
+                            Flagged = e.Flagged,
+                            Completed = e.Completed,
                         });
                 return query.ToArray();
             }
@@ -163,6 +291,8 @@ namespace TakeAction.Services
                 var taskName = ctx.Tasks.Find(model.TaskId);
                 var taskSummary = ctx.Tasks.Find(model.TaskId);
                 var taskDueDate = ctx.Tasks.Find(model.TaskId);
+                var taskFlagged = ctx.Tasks.Find(model.TaskId);
+                var taskCompleted = ctx.Tasks.Find(model.TaskId);
                 var entity =
                     ctx
                         .Assignments
@@ -176,6 +306,9 @@ namespace TakeAction.Services
                 entity.AssignerFirstName = model.AssignerFirstName;
                 entity.AssignerLastName = model.AssignerLastName;
                 entity.DeptA = model.DeptA;
+                entity.Flagged = taskFlagged.Flagged;
+                entity.Completed = taskCompleted.Completed;
+                
 
                 return ctx.SaveChanges() == 1;
             }

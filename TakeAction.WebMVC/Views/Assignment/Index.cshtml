@@ -6,8 +6,12 @@
 
 <h2 style="color:white;font-size: 70px"><center>Assignments</center></h2>
 
-<p>
-    <center>@Html.ActionLink("Create New", "Create")</center>
+<p style="text-align: center; color:white">
+    @Html.ActionLink("Create New", "Create") |
+    @Html.ActionLink("Flagged Assignments", "FlaggedAssignments") |
+    @Html.ActionLink("Unflagged Assignments", "UnflaggedAssignments") |
+    @Html.ActionLink("Outstanding Assignments", "OutstandingAssignments") |
+    @Html.ActionLink("Completed Assignments", "CompletedAssignments")
 </p>
 
 @if (TempData.ContainsKey("SaveResult"))
@@ -35,6 +39,14 @@
                         <div>
                             Assigner:
                             @Html.DisplayFor(model => item.AssignerFullName)
+                        </div>
+                        <div>
+                            Flagged:
+                            @Html.DisplayFor(model => item.Flagged)
+                        </div>
+                        <div>
+                            Completed:
+                            @Html.DisplayFor(model => item.Completed)
                         </div>
                         <div>
                             Due Date:

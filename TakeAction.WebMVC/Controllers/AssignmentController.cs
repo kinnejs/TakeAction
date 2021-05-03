@@ -74,6 +74,38 @@ namespace TakeAction.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult FlaggedAssignments()
+        {
+            var svc = CreateAssignmentService();
+            var model = svc.GetFlaggedAssignments();
+
+            return View(model);
+        }
+
+        public ActionResult UnflaggedAssignments()
+        {
+            var svc = CreateAssignmentService();
+            var model = svc.GetUnflaggedAssignments();
+
+            return View(model);
+        }
+
+        public ActionResult CompletedAssignments()
+        {
+            var svc = CreateAssignmentService();
+            var model = svc.GetCompletedAssignments();
+
+            return View(model);
+        }
+
+        public ActionResult OutstandingAssignments()
+        {
+            var svc = CreateAssignmentService();
+            var model = svc.GetOutstandingAssignments();
+
+            return View(model);
+        }
+
         public ActionResult DetailsByDueDate(DateTimeOffset? dueDate)
         {
             var svc = CreateAssignmentService();

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<TakeAction.Models.Assignment.AssignmentListItem>
+
+@{
+    ViewBag.Title = "UnflaggedAssignments";
+}
+
+<h2 style="color:white;font-size: 50px"><center>Unflagged Assignments</center></h2>
+
+<div class=" employee-board">
+    @foreach (var item in Model)
+    {
+        <div class=" employee-container col-md-4" style="text-align:center">
+            <div class="employee-card" ; color: black>
+                <div class="employee-head">
+                    <b>@Html.DisplayFor(model => item.EmployeeFullName)</b>
+                </div>
+                <div class="employee-body">
+                    <div class="employee-category">
+                        @Html.DisplayFor(model => item.TaskName)
+                    </div>
+                    <div>
+                        Assigner:
+                        @Html.DisplayFor(model => item.AssignerFullName)
+                    </div>
+                    <div>
+                        Flagged:
+                        @Html.DisplayFor(model => item.Flagged)
+                    </div>
+                    <div>
+                        Completed:
+                        @Html.DisplayFor(model => item.Completed)
+                    </div>
+                    <div>
+                        Due Date:
+                        @Html.DisplayFor(model => item.DueDate)
+                    </div>
+                    <div>
+                        @Html.DisplayNameFor(model => model.AssignedDate):
+                        @Html.DisplayFor(modelItem => item.AssignedDate)
+                    </div>
+                </div>
+                <div class="employee-links">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.AssignmentId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.AssignmentId })|
+                    @Html.ActionLink("Delete", "Delete", new { id = item.AssignmentId })
+                </div>
+            </div>
+        </div>
+    }
+</div>
+    
+<div style="color:white; text-align: center">
+    @Html.ActionLink("Flagged Assignments", "FlaggedAssignments") |
+    @Html.ActionLink("Back to Assignments", "Index")
+</div>

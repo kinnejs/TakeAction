@@ -1,0 +1,45 @@
+﻿@model IEnumerable<TakeAction.Models.Task.TaskListItem>
+
+@{
+    ViewBag.Title = "CompletedTasks";
+}
+
+<h2 style="color:white;font-size: 50px"><center>Completed Tasks</center></h2>
+
+<div class=" employee-board">
+    @foreach (var item in Model)
+    {
+        <div class=" employee-container col-md-4" style="text-align:center">
+            <div class="employee-card" ; color: black>
+                <div class="employee-body">
+                    <div class="employee-category">
+                        @Html.DisplayFor(model => item.TaskName)
+                    </div>
+                    <div>
+                        Due Date:
+                        @Html.DisplayFor(model => item.DueDate)
+                    </div>
+                    <div>
+                        Flagged:
+                        @Html.DisplayFor(model => item.Flagged)
+                    </div>
+                    <div>
+                        Completed:
+                        @Html.DisplayFor(model => item.Completed)
+                    </div>
+                </div>
+                <div class="employee-links">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.TaskId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.TaskId })|
+                    @Html.ActionLink("Delete", "Delete", new { id = item.TaskId })
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<br />
+<div style="color: white; text-align: center">
+    <br />
+    @Html.ActionLink("Outstanding Tasks", "OutstandingTasks") |
+    @Html.ActionLink("Back to Tasks", "Index")
+</div>

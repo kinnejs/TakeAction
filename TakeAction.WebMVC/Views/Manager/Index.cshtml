@@ -39,8 +39,12 @@
                             @Html.DisplayFor(model => item.Subordinates)
                         </div>
                         <div>
+                            @Html.ActionLink("Employees", "Create")
+                        </div>
+                        <div>
                             @Html.DisplayFor(modelItem => item.DeptM)
                         </div>
+
                     </div>
                     <div class="employee-links">
                         @Html.ActionLink("Edit", "Edit", new { id = item.ManagerId }) |

@@ -6,8 +6,12 @@
 
 <h2 style="color:white;font-size: 70px"><center>Tasks</center></h2>
 
-<p>
-    <center>@Html.ActionLink("Create New", "Create", new { @class = "link-class" })</center>
+<p style="text-align: center; color: white">
+    @Html.ActionLink("Create New", "Create", new { @class = "link-class" }) |
+    @Html.ActionLink("Flagged Tasks", "FlaggedTasks", new { @class = "link-class" }) |
+    @Html.ActionLink("Unflagged Tasks", "UnflaggedTasks", new { @class = "link-class" }) |
+    @Html.ActionLink("Outstanding Tasks", "OutstandingTasks", new { @class = "link-class" }) |
+    @Html.ActionLink("Completed Tasks", "CompletedTasks", new { @class = "link-class" })
 </p>
 
 @if (TempData.ContainsKey("SaveResult"))

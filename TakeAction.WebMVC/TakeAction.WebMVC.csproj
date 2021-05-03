@@ -305,6 +305,15 @@
     <Content Include="Views\Assignment\Details.cshtml" />
     <Content Include="Views\Assignment\Edit.cshtml" />
     <Content Include="Views\Assignment\Delete.cshtml" />
+    <Content Include="Views\Assignment\FlaggedAssignments.cshtml" />
+    <Content Include="Views\Assignment\CompletedAssignments.cshtml" />
+    <Content Include="Views\Assignment\OutstandingAssignments.cshtml" />
+    <Content Include="Views\Assignment\UnflaggedAssignments.cshtml" />
+    <Content Include="Views\Task\FlaggedTasks.cshtml" />
+    <Content Include="Views\Task\UnflaggedTasks.cshtml" />
+    <Content Include="Views\Task\CompletedTasks.cshtml" />
+    <Content Include="Views\Task\OutstandingTasks.cshtml" />
+    <Content Include="Views\Employee\EmployeesByManagerId.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

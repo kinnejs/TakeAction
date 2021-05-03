@@ -40,6 +40,9 @@
                             @Html.DisplayNameFor(model => model.HiredDate):
                             @Html.DisplayFor(modelItem => item.HiredDate)
                         </div>
+                        <div style="color: black">
+                            @Html.ActionLink("Assignments", "EmployeesByManagerId")
+                        </div>
                     </div>
                     <div class="employee-links">
                         @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeId }) |

@@ -15,8 +15,8 @@
 <h2 style="color:white;font-size: 70px"><center>Assignment Details</center></h2>
 
 <hr />
-<div class="createemployee-card" ; color: black>
-    <div class=" createemployee-container col-md-12" style="text-align:center;">
+<div class="createemployee-card" ; color: black; style="height: 750px">
+    <div class=" createemployee-container col-md-12" style="text-align:center">
         <div style="font-size: 25px; padding-top: 10px; width: 20%; margin:0px auto; display:block">
             <dt>
                 @Html.DisplayNameFor(model => model.AssignmentId)
@@ -78,6 +78,24 @@
 
             <dd>
                 @Html.DisplayFor(model => model.AssignedDate)
+            </dd>
+        </div>
+        <div style="font-size: 25px; padding-top: 10px; width: 20%; margin:0px auto; display:block">
+            <dt>
+                @Html.DisplayNameFor(model => model.Flagged)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Flagged)
+            </dd>
+        </div>
+        <div style="font-size: 25px; padding-top: 10px; width: 20%; margin:0px auto; display:block">
+            <dt>
+                @Html.DisplayNameFor(model => model.Completed)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Completed)
             </dd>
         </div>
 

@@ -198,6 +198,10 @@
     <Compile Include="Migrations\202104292049136_RemovedEmployeeManagerFullName.Designer.cs">
       <DependentUpon>202104292049136_RemovedEmployeeManagerFullName.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105021705486_AddedAssignmentFlaggedCompleted.cs" />
+    <Compile Include="Migrations\202105021705486_AddedAssignmentFlaggedCompleted.Designer.cs">
+      <DependentUpon>202105021705486_AddedAssignmentFlaggedCompleted.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Taskl.cs" />
@@ -320,6 +324,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104292049136_RemovedEmployeeManagerFullName.resx">
       <DependentUpon>202104292049136_RemovedEmployeeManagerFullName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105021705486_AddedAssignmentFlaggedCompleted.resx">
+      <DependentUpon>202105021705486_AddedAssignmentFlaggedCompleted.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -55,26 +55,34 @@ namespace TakeAction.WebMVC.Controllers
             return View(model);
         }
 
-        public ActionResult DetailsCompletedTasks(bool complete)
+        public ActionResult CompletedTasks()
         {
             var svc = CreateTaskService();
-            var model = svc.GetCompletedTasks(complete);
+            var model = svc.GetCompletedTasks();
 
             return View(model);
         }
 
-        public ActionResult DetailsFlaggedTasks(bool flagged)
+        public ActionResult FlaggedTasks()
         {
             var svc = CreateTaskService();
-            var model = svc.GetFlaggedTasks(flagged);
+            var model = svc.GetFlaggedTasks();
 
             return View(model);
         }
 
-        public ActionResult DetailsOutstandingTasks(bool outstanding)
+        public ActionResult UnflaggedTasks()
         {
             var svc = CreateTaskService();
-            var model = svc.GetOutstandingTasks(outstanding);
+            var model = svc.GetUnflaggedTasks();
+
+            return View(model);
+        }
+
+        public ActionResult OutstandingTasks()
+        {
+            var svc = CreateTaskService();
+            var model = svc.GetOutstandingTasks();
 
             return View(model);
         }

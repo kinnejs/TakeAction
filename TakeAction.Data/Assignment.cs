@@ -75,5 +75,11 @@ namespace TakeAction.Data
         {
             Finance = 1, Marketing = 2, IT = 3, HR = 4, Management = 5, Other = 6,
         }
+
+        [Display(Name = "Flagged")]
+        public bool Flagged { get; set; }
+
+        [Display(Name = "Completed")]
+        public bool Completed { get; set; }
     }
 }

@@ -8,7 +8,7 @@
 
 <h3 style="color:white; font-size: 40px"><center>Are you sure you want to delete this Assignment?</center></h3>
     <hr />
-    <div class="createemployee-card" ; color: black>
+    <div class="createemployee-card" ; color: black; style="height: 700px">
         <div class=" createemployee-container col-md-12" style="text-align:center;">
             <div style="font-size: 25px; padding-top: 10px; width: 20%; margin:0px auto; display:block">
                 <dt>
@@ -65,10 +65,28 @@
                     @Html.DisplayFor(model => model.AssignedDate)
                 </dd>
             </div>
+            <div style="font-size: 25px; padding-top: 10px; width: 20%; margin:0px auto; display:block">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Flagged)
+                </dt>
 
-                
+                <dd>
+                    @Html.DisplayFor(model => model.Flagged)
+                </dd>
             </div>
+            <div style="font-size: 25px; padding-top: 10px; width: 20%; margin:0px auto; display:block">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Completed)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Completed)
+                </dd>
+            </div>
+
+
         </div>
+    </div>
 
                 @using (Html.BeginForm())
                 {

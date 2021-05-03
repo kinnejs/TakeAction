@@ -89,75 +89,99 @@ namespace TakeAction.Services
             }
         }
 
-        public TaskDetail GetFlaggedTasks(bool flagged)
+        public IEnumerable<TaskListItem> GetFlaggedTasks()
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity =
-
+                var query =
                     ctx
                         .Tasks
-                        .Single(e => e.Flagged == true && e.TaskOwnerId == _userId);
-
-                return
-                    new TaskDetail
-                    {
-                        TaskId = entity.TaskId,
-                        TaskName = entity.TaskName,
-                        TaskSummary = entity.TaskSummary,
-                        DueDate = (DateTimeOffset)entity.DueDate,
-                        Flagged = entity.Flagged,
-                        Completed = entity.Completed,
-
-                    };
+                        .Where(e => e.Flagged == true && e.TaskOwnerId == _userId)
+                        .Select(
+                        e =>
+                            new TaskListItem
+                            {
+                                TaskId = e.TaskId,
+                                TaskName = e.TaskName,
+                                TaskSummary = e.TaskSummary,
+                                DueDate = (DateTimeOffset)e.DueDate,
+                                Flagged = e.Flagged,
+                                Completed = e.Completed,
+                            }
+                        );
+                return query.ToArray();
             }
         }
 
-        public TaskDetail GetCompletedTasks(bool complete)
+        public IEnumerable<TaskListItem> GetUnflaggedTasks()
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity =
-
+                var query =
                     ctx
                         .Tasks
-                        .Single(e => e.Completed == true && e.TaskOwnerId == _userId);
-
-                return
-                    new TaskDetail
-                    {
-                        TaskId = entity.TaskId,
-                        TaskName = entity.TaskName,
-                        TaskSummary = entity.TaskSummary,
-                        DueDate = (DateTimeOffset)entity.DueDate,
-                        Flagged = entity.Flagged,
-                        Completed = entity.Completed,
-
-                    };
+                        .Where(e => e.Flagged == false && e.TaskOwnerId == _userId)
+                        .Select(
+                        e =>
+                            new TaskListItem
+                            {
+                                TaskId = e.TaskId,
+                                TaskName = e.TaskName,
+                                TaskSummary = e.TaskSummary,
+                                DueDate = (DateTimeOffset)e.DueDate,
+                                Flagged = e.Flagged,
+                                Completed = e.Completed,
+                            }
+                        );
+                return query.ToArray();
             }
         }
 
-        public TaskDetail GetOutstandingTasks(bool outstanding)
+        public IEnumerable<TaskListItem> GetCompletedTasks()
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var entity =
-
+                var query =
                     ctx
                         .Tasks
-                        .Single(e => e.Completed == false && e.TaskOwnerId == _userId);
+                        .Where(e => e.Completed == true && e.TaskOwnerId == _userId)
+                        .Select(
+                        e =>
+                            new TaskListItem
+                            {
+                                TaskId = e.TaskId,
+                                TaskName = e.TaskName,
+                                TaskSummary = e.TaskSummary,
+                                DueDate = (DateTimeOffset)e.DueDate,
+                                Flagged = e.Flagged,
+                                Completed = e.Completed,
+                            }
+                        );
+                return query.ToArray();
+            }
+        }
 
-                return
-                    new TaskDetail
-                    {
-                        TaskId = entity.TaskId,
-                        TaskName = entity.TaskName,
-                        TaskSummary = entity.TaskSummary,
-                        DueDate = (DateTimeOffset)entity.DueDate,
-                        Flagged = entity.Flagged,
-                        Completed = entity.Completed,
-
-                    };
+        public IEnumerable<TaskListItem> GetOutstandingTasks()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Tasks
+                        .Where(e => e.Completed == false && e.TaskOwnerId == _userId)
+                        .Select(
+                        e =>
+                            new TaskListItem
+                            {
+                                TaskId = e.TaskId,
+                                TaskName = e.TaskName,
+                                TaskSummary = e.TaskSummary,
+                                DueDate = (DateTimeOffset)e.DueDate,
+                                Flagged = e.Flagged,
+                                Completed = e.Completed,
+                            }
+                        );
+                return query.ToArray();
             }
         }
 
@@ -216,7 +240,6 @@ namespace TakeAction.Services
                         .Single(e => e.TaskId == TaskId && e.TaskOwnerId == _userId);
 
                 ctx.Tasks.Remove(entity);
-
                 return ctx.SaveChanges() == 1;
             }
         }

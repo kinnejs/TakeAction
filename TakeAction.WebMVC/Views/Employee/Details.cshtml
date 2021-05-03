@@ -46,6 +46,9 @@
             <dd>
                 @Html.DisplayFor(model => model.Dept)
             </dd>
+            <div style="color: black">
+                @Html.ActionLink("Assignments", "Create")
+            </div>
         </div>
         <div style="font-size: 35px; padding-top: 10px; width: 20%; margin:0px auto; display:block">
             <dt>
@@ -55,6 +58,7 @@
             <dd>
                 @Html.DisplayFor(model => model.HiredDate)
             </dd>
+            
         </div>
 
     </div>
