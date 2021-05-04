@@ -41,7 +41,7 @@
                             @Html.DisplayFor(modelItem => item.HiredDate)
                         </div>
                         <div style="color: black">
-                            @Html.ActionLink("Assignments", "EmployeesByManagerId")
+                            @Html.ActionLink("Assignments", "AssignmentsByEmployeeId", "Assignment", new { employeeId = item.EmployeeId }, null)
                         </div>
                     </div>
                     <div class="employee-links">

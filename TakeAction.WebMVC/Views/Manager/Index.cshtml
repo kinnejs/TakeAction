@@ -39,7 +39,7 @@
                             @Html.DisplayFor(model => item.Subordinates)
                         </div>
                         <div>
-                            @Html.ActionLink("Employees", "Create")
+                            @Html.ActionLink("Employees", "EmployeesByManagerId", "Employee", new { managerId = item.ManagerId }, null)
                         </div>
                         <div>
                             @Html.DisplayFor(modelItem => item.DeptM)

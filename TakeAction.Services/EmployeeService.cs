@@ -98,7 +98,7 @@ namespace TakeAction.Services
             }
         }
 
-        public IEnumerable<EmployeeDetailTwo> GetEmployeesByManagerId(int managerId)
+        public IEnumerable<EmployeeDetailTwo> GetEmployeesByManagerId(int? managerId)
         {
             using (var ctx = new ApplicationDbContext())
             {

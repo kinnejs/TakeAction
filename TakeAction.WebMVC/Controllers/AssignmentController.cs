@@ -66,7 +66,7 @@ namespace TakeAction.WebMVC.Controllers
             return View(model);
         }
 
-        public ActionResult DetailsByEmployeeId(int employeeId)
+        public ActionResult AssignmentsByEmployeeId(int? employeeId)
         {
             var svc = CreateAssignmentService();
             var model = svc.GetAssignmentsByEmployeeId(employeeId);

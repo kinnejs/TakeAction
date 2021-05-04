@@ -62,7 +62,7 @@ namespace TakeAction.WebMVC.Controllers
             return View(model);
         }
 
-        public ActionResult EmployeesByManagerId(int managerId)
+        public ActionResult EmployeesByManagerId(int? managerId)
         {
             var svc = CreateEmployeeService();
             var model = svc.GetEmployeesByManagerId(managerId);

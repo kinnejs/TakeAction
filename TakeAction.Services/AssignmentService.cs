@@ -226,8 +226,7 @@ namespace TakeAction.Services
             }
         }
 
-
-        public IEnumerable<AssignmentDetailTwo> GetAssignmentsByEmployeeId(int employeeId)
+        public IEnumerable<AssignmentDetail> GetAssignmentsByEmployeeId(int? employeeId)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -235,7 +234,7 @@ namespace TakeAction.Services
                     ctx
                         .Assignments
                         .Where(e => e.EmployeeId == employeeId)
-                        .Select(e => new AssignmentDetailTwo
+                        .Select(e => new AssignmentDetail
                         {
                             AssignmentId = e.AssignmentId,
                             EmployeeId = e.EmployeeId,
