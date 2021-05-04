@@ -159,11 +159,20 @@ namespace TakeAction.Services
                     ctx
                         .Managers
                         .Single(e => e.ManagerId == managerId && e.ManagerOwnerId == _userId);
+                var entity2 =
+                    ctx
+                        .Employees
+                        .Where(e => e.ManagerId == managerId);
+                foreach(var item in entity2)
+                {
+                    item.ManagerId = null;
+                }
 
                 ctx.Managers.Remove(entity);
-
-                return ctx.SaveChanges() == 1;
+                var managerCount = entity2.Count();
+                return ctx.SaveChanges() == managerCount + 1;
             }
         }
+
     }
 }

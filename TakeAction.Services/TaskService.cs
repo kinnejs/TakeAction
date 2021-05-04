@@ -238,10 +238,21 @@ namespace TakeAction.Services
                     ctx
                         .Tasks
                         .Single(e => e.TaskId == TaskId && e.TaskOwnerId == _userId);
+                var entity2 =
+                    ctx
+                        .Assignments
+                        .Where(e => e.TaskId == TaskId);
+                foreach(var item in entity2)
+                {
+                    item.TaskId = null;
+                }
 
                 ctx.Tasks.Remove(entity);
-                return ctx.SaveChanges() == 1;
+                var assignmentCount = entity2.Count();
+                return ctx.SaveChanges() == assignmentCount + 1;
             }
         }
+
+
     }
 }

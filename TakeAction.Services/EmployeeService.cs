@@ -171,10 +171,18 @@ namespace TakeAction.Services
                     ctx
                         .Employees
                         .Single(e => e.EmployeeId == employeeId && e.OwnerId == _userId);
+                var entity2 =
+                    ctx
+                        .Assignments
+                        .Where(e => e.EmployeeId == employeeId);
+                foreach(var item in entity2)
+                {
+                    item.EmployeeId = null;
+                }
 
                 ctx.Employees.Remove(entity);
-
-                return ctx.SaveChanges() == 1;
+                var assignmentCount = entity2.Count();
+                return ctx.SaveChanges() == assignmentCount + 1;
             }
         }
 
